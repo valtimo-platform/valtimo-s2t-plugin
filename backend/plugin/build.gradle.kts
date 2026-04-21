@@ -29,7 +29,7 @@ dependencies {
     implementation("com.ritense.valtimo:plugin-valtimo")
     implementation("com.ritense.valtimo:temporary-resource-storage")
     implementation("com.ritense.valtimo:value-resolver")
-    implementation("com.ritense.valtimo:document")
+    implementation("com.ritense.valtimo:case")
 }
 
 apply(from = "gradle/publishing.gradle")
