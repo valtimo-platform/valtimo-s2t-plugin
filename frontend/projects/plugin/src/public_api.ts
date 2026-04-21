@@ -15,11 +15,11 @@
  */
 
 /*
- * Public API Surface of sample-plugin
+ * Public API Surface of valtimo-s2t
  */
 
-export * from "./lib/plugins/sample-plugin/models";
-export * from "./lib/plugins/sample-plugin/sample-plugin-module";
-export * from "./lib/plugins/sample-plugin/sample-plugin.specification";
-export * from "./lib/plugins/sample-plugin/components/sample-plugin-configuration/sample-plugin-configuration.component";
-export * from "./lib/plugins/sample-plugin/components/sample-action-configuration/sample-action-configuration.component";
+export * from "./lib/plugins/valtimo-s2t/models";
+export * from "./lib/plugins/valtimo-s2t/valtimo-s2t-module";
+export * from "./lib/plugins/valtimo-s2t/valtimo-s2t.specification";
+export * from "./lib/plugins/valtimo-s2t/components/valtimo-s2t-configuration/valtimo-s2t-configuration.component";
+export * from "./lib/plugins/valtimo-s2t/components/sample-action-configuration/sample-action-configuration.component";
