@@ -25,11 +25,11 @@ dockerCompose {
 }
 
 dependencies {
-    implementation("com.ritense.valtimo:core")
-    implementation("com.ritense.valtimo:plugin-valtimo")
-    implementation("com.ritense.valtimo:temporary-resource-storage")
-    implementation("com.ritense.valtimo:value-resolver")
-    implementation("com.ritense.valtimo:case")
+    compileOnly("com.ritense.valtimo:core")
+    compileOnly("com.ritense.valtimo:plugin-valtimo")
+    compileOnly("com.ritense.valtimo:temporary-resource-storage")
+    compileOnly("com.ritense.valtimo:value-resolver")
+    compileOnly("com.ritense.valtimo:case")
 }
 
 apply(from = "gradle/publishing.gradle")
