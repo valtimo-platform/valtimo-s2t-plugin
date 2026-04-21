@@ -1,6 +1,6 @@
 spring:
   application:
-    name: plugin-sandbox-application
+    name: valtimo-s2t-plugin-application
   profiles:
     active: dev
   jackson:
