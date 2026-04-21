@@ -1,71 +1,24 @@
-# Plugin Documentation
+# Valtimo S2T Plugin
 
-<!-- Use this page to document your plugin. Below is a suggested structure. -->
+The **Valtimo S2T** plugin is a Valtimo plugin that allows users to convert the speech from audio files like mp3 or mpeg to text using **Mistral**.
 
-## Overview
+---
 
-This is a sample plugin demonstrating an API call action. It fetches data from a time API endpoint.
+## Setup Instructions
 
-## Dependencies
+To set up the Valtimo S2T plugin, follow these steps:
 
-### Backend
+1. **Create a Mistral Account**
+   Visit [Mistral](https://mistral.ai/) and create a free account. Once registered, generate and copy your **Mistral API
+   key**.
 
-```kotlin
-dependencies {
-    implementation("com.ritense.valtimoplugins:sample-plugin:0.0.1")
-}
-```
+2. **Access the Plugin in Valtimo**
 
-### Frontend
+    * Navigate to the **Plugins** section in your Valtimo application.
+    * Locate the plugin named **Valtimo S2T Plugin**.
+    * Open the plugin settings and paste your **Mistral API key** into the input field.
+    * Click **Save**.
 
-```json
-{
-  "dependencies": {
-    "@valtimo-plugins/sample-plugin": "0.0.1"
-  }
-}
-```
-
-In your `app.module.ts`:
-
-```typescript
-import {
-    SamplePluginModule, samplePluginSpecification,
-} from '@valtimo-plugins/sample-plugin';
-
-@NgModule({
-    imports: [
-        SamplePluginModule,
-    ],
-    providers: [
-        {
-            provide: PLUGIN_TOKEN,
-            useValue: [
-                samplePluginSpecification,
-            ]
-        }
-    ]
-})
-```
-
-## Configuration
-
-List the plugin configuration properties and how to set them.
-
-| Property | Type   | Required | Description                          |
-|----------|--------|----------|--------------------------------------|
-| apiUrl   | string | Yes      | The URL of the time API to call      |
-
-## Actions
-
-### Time API test action
-
-Sends a GET request to the configured API URL and returns the timezone response.
-
-| Parameter | Type | Required | Description |
-|-----------|------|----------|-------------|
-|           |      |          |             |
-
-## Usage
-
-Explain how to use the plugin in a process, with examples if applicable.
+3. **Using the Plugin**
+   Once configured, the plugin is ready to use. Open the **"Valtimo S2T Plugin"** Case and start a new case.
+   Upload an audio file and receive the extracted text.
