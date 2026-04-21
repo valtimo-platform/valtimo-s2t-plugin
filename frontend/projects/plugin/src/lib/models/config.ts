@@ -12,24 +12,18 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *
  */
 
-dockerCompose {
-    setProjectName("valtimo-s2t")
-    isRequiredBy(project.tasks.integrationTesting)
+import {PluginConfigurationData} from '@valtimo/plugin';
 
-    tasks.integrationTesting {
-        useComposeFiles.addAll("$rootDir/docker-resources/docker-compose-base-test.yml", "docker-compose-override.yml")
-    }
+interface ValtimoS2tConfig extends PluginConfigurationData {
+    url: string;
+    token: string;
 }
 
-dependencies {
-    implementation("com.ritense.valtimo:core")
-    implementation("com.ritense.valtimo:plugin-valtimo")
-    implementation("com.ritense.valtimo:temporary-resource-storage")
-    implementation("com.ritense.valtimo:value-resolver")
-    implementation("com.ritense.valtimo:document")
+interface SpeechToTranscriptionConfig {
+    filePV: string;
+    resultPV: string;
 }
 
-apply(from = "gradle/publishing.gradle")
+export {ValtimoS2tConfig, SpeechToTranscriptionConfig};

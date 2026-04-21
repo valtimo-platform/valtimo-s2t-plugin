@@ -15,21 +15,22 @@
  *
  */
 
-dockerCompose {
-    setProjectName("valtimo-s2t")
-    isRequiredBy(project.tasks.integrationTesting)
+package com.ritense.valtimoplugins.valtimos2t.client.mistral
 
-    tasks.integrationTesting {
-        useComposeFiles.addAll("$rootDir/docker-resources/docker-compose-base-test.yml", "docker-compose-override.yml")
-    }
-}
+import com.fasterxml.jackson.annotation.JsonInclude
+import com.fasterxml.jackson.annotation.JsonProperty
+import java.io.Serializable
 
-dependencies {
-    implementation("com.ritense.valtimo:core")
-    implementation("com.ritense.valtimo:plugin-valtimo")
-    implementation("com.ritense.valtimo:temporary-resource-storage")
-    implementation("com.ritense.valtimo:value-resolver")
-    implementation("com.ritense.valtimo:document")
-}
+@JsonInclude(JsonInclude.Include.NON_NULL)
+data class TranscriptionResult(
+    val text: String,
+   val segments: List<TranscriptionSegment>?,
+    val language: String?
+) : Serializable
 
-apply(from = "gradle/publishing.gradle")
+@JsonInclude(JsonInclude.Include.NON_NULL)
+data class TranscriptionSegment(
+    val start: Double,
+    val end: Double,
+    val text: String
+) : Serializable

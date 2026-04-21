@@ -15,21 +15,22 @@
  *
  */
 
-dockerCompose {
-    setProjectName("valtimo-s2t")
-    isRequiredBy(project.tasks.integrationTesting)
+package com.ritense.valtimoplugins.valtimos2t.plugin
 
-    tasks.integrationTesting {
-        useComposeFiles.addAll("$rootDir/docker-resources/docker-compose-base-test.yml", "docker-compose-override.yml")
-    }
+import com.ritense.plugin.PluginFactory
+import com.ritense.plugin.service.PluginService
+import com.ritense.valtimo.contract.annotation.SkipComponentScan
+import com.ritense.valtimoplugins.valtimos2t.client.MistralVoxtralClient
+import org.springframework.stereotype.Component
+
+@Component
+@SkipComponentScan
+class ValtimoS2tPluginFactory(
+    pluginService: PluginService,
+    val mistralVoxtralClient: MistralVoxtralClient
+) : PluginFactory<ValtimoS2tPlugin>(pluginService) {
+
+    override fun create() = ValtimoS2tPlugin(
+        mistralVoxtralClient,
+    )
 }
-
-dependencies {
-    implementation("com.ritense.valtimo:core")
-    implementation("com.ritense.valtimo:plugin-valtimo")
-    implementation("com.ritense.valtimo:temporary-resource-storage")
-    implementation("com.ritense.valtimo:value-resolver")
-    implementation("com.ritense.valtimo:document")
-}
-
-apply(from = "gradle/publishing.gradle")
