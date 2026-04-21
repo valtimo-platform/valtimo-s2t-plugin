@@ -75,7 +75,7 @@ import {TeamsModule} from "@valtimo/teams";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {environment} from "../environments/environment";
 
-import {SamplePluginModule, samplePluginSpecification,} from "@valtimo-plugins/valtimo-s2t";
+import {ValtimoS2tPluginModule, valtimoS2tPluginSpecification,} from "@valtimo-plugins/valtimo-s2t";
 
 export function tabsFactory() {
   return new Map<string, object>([
@@ -124,7 +124,7 @@ export function tabsFactory() {
     ProcessModule,
     ReactiveFormsModule,
     ResourceModule,
-    SamplePluginModule,
+    ValtimoS2tPluginModule,
     SecurityModule,
     SseModule,
     SwaggerModule,
@@ -145,7 +145,7 @@ export function tabsFactory() {
     {
       provide: PLUGINS_TOKEN,
       useValue: [
-        samplePluginSpecification,
+        valtimoS2tPluginSpecification,
       ],
     },
   ],
