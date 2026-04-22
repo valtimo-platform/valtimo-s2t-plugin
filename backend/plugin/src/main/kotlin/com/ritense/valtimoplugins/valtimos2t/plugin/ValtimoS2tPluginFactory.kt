@@ -27,10 +27,10 @@ import org.springframework.stereotype.Component
 @SkipComponentScan
 class ValtimoS2tPluginFactory(
     pluginService: PluginService,
-    val mistralVoxtralClient: MistralVoxtralClient
+    val mistralVoxtralClient: MistralVoxtralClient,
 ) : PluginFactory<ValtimoS2tPlugin>(pluginService) {
-
-    override fun create() = ValtimoS2tPlugin(
-        mistralVoxtralClient,
-    )
+    override fun create() =
+        ValtimoS2tPlugin(
+            mistralVoxtralClient,
+        )
 }

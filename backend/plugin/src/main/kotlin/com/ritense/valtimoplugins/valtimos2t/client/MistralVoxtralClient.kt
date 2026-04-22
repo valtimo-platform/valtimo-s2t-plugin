@@ -33,26 +33,36 @@ const val PATH = "v1/audio/transcriptions"
 @Component
 @SkipComponentScan
 class MistralVoxtralClient(
-    private val restClientBuilder: RestClient.Builder
+    private val restClientBuilder: RestClient.Builder,
 ) {
-    fun transcribeSpeech(fileBase64: String, fileName: String, url: URI, token: String): TranscriptionResult {
+    fun transcribeSpeech(
+        fileBase64: String,
+        fileName: String,
+        url: URI,
+        token: String,
+    ): TranscriptionResult {
         val formData = buildFormData(MODEL, fileBase64, fileName)
         return post(PATH, formData, url, token)
     }
 
-    private fun post(path: String, formData: MultiValueMap<String, Any>, url: URI, token: String): TranscriptionResult {
+    private fun post(
+        path: String,
+        formData: MultiValueMap<String, Any>,
+        url: URI,
+        token: String,
+    ): TranscriptionResult {
         val base = requireNotNull(url) { "The API URL has not been set" }
         val requestUri = base.resolve(path)
 
         val client = restClientBuilder.clone().build()
 
-        return client.post()
+        return client
+            .post()
             .uri(requestUri)
             .headers {
                 it.contentType = MediaType.MULTIPART_FORM_DATA
                 it.setBearerAuth(requireNotNull(token) { "The API-key has not been set" })
-            }
-            .accept(MediaType.APPLICATION_JSON)
+            }.accept(MediaType.APPLICATION_JSON)
             .body(formData)
             .retrieve()
             .body<TranscriptionResult>()!!

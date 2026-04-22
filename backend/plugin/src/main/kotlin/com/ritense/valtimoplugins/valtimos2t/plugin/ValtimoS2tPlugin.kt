@@ -37,7 +37,6 @@ const val FILENAME_PATTERN = "name=(.+?)-[a-f0-9\\-]{36}\\.(mp3|wav|m4a|ogg)"
 open class ValtimoS2tPlugin(
     private val mistralVoxtralClient: MistralVoxtralClient,
 ) {
-
     @PluginProperty(key = "url", secret = false)
     lateinit var url: URI
 
@@ -48,31 +47,40 @@ open class ValtimoS2tPlugin(
         key = "speech-to-transcription",
         title = "Speech to Transcription",
         description = "Extracts text from an audio file using Mistral Voxtral.",
-        activityTypes = [ActivityTypeWithEventName.SERVICE_TASK_START]
+        activityTypes = [ActivityTypeWithEventName.SERVICE_TASK_START],
     )
     open fun speechToTranscription(
         execution: DelegateExecution,
         @PluginActionProperty filePV: String,
-        @PluginActionProperty resultPV: String
+        @PluginActionProperty resultPV: String,
     ) {
-        val file = execution.getVariable(filePV) as? List<*>
-            ?: throw IllegalStateException("No file provided in process variable $filePV to transcribe.")
+        val file =
+            execution.getVariable(filePV) as? List<*>
+                ?: throw IllegalStateException("No file provided in process variable $filePV to transcribe.")
 
         val firstItem = file.firstOrNull().toString()
 
-        val base64Url = Regex(BASE64_PATTERN)
-            .find(firstItem)?.groupValues?.get(1)
-            ?: throw IllegalStateException("Base64 URL not found in: $firstItem")
+        val base64Url =
+            Regex(BASE64_PATTERN)
+                .find(firstItem)
+                ?.groupValues
+                ?.get(1)
+                ?: throw IllegalStateException("Base64 URL not found in: $firstItem")
 
-        val filename: String = Regex(FILENAME_PATTERN)
-            .find(firstItem)?.groupValues?.get(1)?.plus(".mp3")!!
+        val filename: String =
+            Regex(FILENAME_PATTERN)
+                .find(firstItem)
+                ?.groupValues
+                ?.get(1)
+                ?.plus(".mp3")!!
 
-        val transcription = mistralVoxtralClient.transcribeSpeech(
-            fileBase64 = base64Url,
-            fileName = filename,
-            url = url,
-            token = token
-        )
+        val transcription =
+            mistralVoxtralClient.transcribeSpeech(
+                fileBase64 = base64Url,
+                fileName = filename,
+                url = url,
+                token = token,
+            )
 
         execution.setVariable(resultPV, transcription)
     }

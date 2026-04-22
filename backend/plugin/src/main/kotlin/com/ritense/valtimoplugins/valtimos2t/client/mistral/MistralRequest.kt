@@ -29,21 +29,24 @@ import java.util.Base64
 fun buildFormData(
     model: String,
     audioBase64: String,
-    fileName: String = "audio.mp3"
+    fileName: String = "audio.mp3",
 ): MultiValueMap<String, Any> {
-
     // Convert base64 to bytes (ignoring the metadata)
-    val bytes = Base64.getDecoder()
-        .decode(audioBase64.substringAfter(','))
+    val bytes =
+        Base64
+            .getDecoder()
+            .decode(audioBase64.substringAfter(','))
 
-    val headers = HttpHeaders().apply {
-        contentType = MediaType.parseMediaType("audio/mpeg")
-        contentDisposition = ContentDisposition
-            .builder("form-data")
-            .name("file")
-            .filename(fileName)
-            .build()
-    }
+    val headers =
+        HttpHeaders().apply {
+            contentType = MediaType.parseMediaType("audio/mpeg")
+            contentDisposition =
+                ContentDisposition
+                    .builder("form-data")
+                    .name("file")
+                    .filename(fileName)
+                    .build()
+        }
 
     val audioEntity = HttpEntity(ByteArrayResource(bytes), headers)
 

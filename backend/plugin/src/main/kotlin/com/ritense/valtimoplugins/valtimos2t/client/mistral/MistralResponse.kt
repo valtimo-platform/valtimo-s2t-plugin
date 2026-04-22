@@ -18,19 +18,18 @@
 package com.ritense.valtimoplugins.valtimos2t.client.mistral
 
 import com.fasterxml.jackson.annotation.JsonInclude
-import com.fasterxml.jackson.annotation.JsonProperty
 import java.io.Serializable
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 data class TranscriptionResult(
     val text: String,
-   val segments: List<TranscriptionSegment>?,
-    val language: String?
+    val segments: List<TranscriptionSegment>?,
+    val language: String?,
 ) : Serializable
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 data class TranscriptionSegment(
     val start: Double,
     val end: Double,
-    val text: String
+    val text: String,
 ) : Serializable
