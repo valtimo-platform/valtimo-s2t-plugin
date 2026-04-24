@@ -4,7 +4,8 @@
         "title": "Valtimo S2t plugin (Autodeployed)",
         "pluginDefinitionKey": "valtimo-s2t",
         "properties": {
-            "apiUrl": "https://timeapi.io/api/time/current/zone?timeZone=Europe/Amsterdam"
+            "url": "https://api.mistral.ai/",
+            "token": "YOUR_API_KEY_HERE"
         }
     }
 ]

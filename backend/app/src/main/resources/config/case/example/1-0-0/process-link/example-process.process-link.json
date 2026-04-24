@@ -9,11 +9,11 @@
         "activityId": "valtimo-s2t-action",
         "activityType": "bpmn:ServiceTask:start",
         "processLinkType": "plugin",
-        "pluginDefinitionKey": "valtimo-s2t",
-        "pluginActionDefinitionKey": "valtimo-s2t-action",
+        "pluginActionDefinitionKey": "speech-to-transcription",
         "pluginConfigurationId": "4ac9a49f-4aeb-4f91-86d9-853fd95a1b33",
         "actionProperties": {
-            "message": "Hello from the valtimo-s2t plugin!"
+            "filePV": "resourceId",
+            "resultPV": "result"
         }
     }
 ]

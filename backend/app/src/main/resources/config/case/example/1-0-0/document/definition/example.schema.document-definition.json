@@ -10,7 +10,7 @@
         },
         "apiResult": {
             "type": "string",
-            "description": "Result from the Valtimo S2t plugin Time API call"
+            "description": "Result from the Valtimo S2t plugin"
         },
         "message": {
             "type": "string",

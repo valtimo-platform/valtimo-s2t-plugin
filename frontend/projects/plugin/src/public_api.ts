@@ -1,25 +1,9 @@
 /*
- * Copyright 2026 Ritense BV, the Netherlands.
- *
- * Licensed under EUPL, Version 1.2 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" basis,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-/*
  * Public API Surface of valtimo-s2t
  */
 
-export * from "./lib/plugins/valtimo-s2t/models";
-export * from "./lib/plugins/valtimo-s2t/valtimo-s2t-module";
-export * from "./lib/plugins/valtimo-s2t/valtimo-s2t.specification";
-export * from "./lib/plugins/valtimo-s2t/components/valtimo-s2t-configuration/valtimo-s2t-configuration.component";
-export * from "./lib/plugins/valtimo-s2t/components/sample-action-configuration/sample-action-configuration.component";
+export * from './lib/models';
+export * from './lib/valtimo-s2t-plugin-module';
+export * from './lib/valtimo-s2t-plugin.specification';
+export * from './lib/components/valtimo-s2t-configuration/valtimo-s2t-configuration.component';
+export * from './lib/components/speech-to-transcription/speech-to-transcription-configuration.component';
