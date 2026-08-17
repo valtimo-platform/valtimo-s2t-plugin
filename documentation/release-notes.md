@@ -2,6 +2,10 @@
 
 Overzicht van wijzigingen per versie van de Valtimo S2T-plugin.
 
+## 2.0.2
+
+Valtimo bijgewerkt naar versie 13.41.0.
+
 ## 2.0.1
 Versienummer gelijkgetrokken met de al gepubliceerde 2.0.0. Deze release bevat geen functionele wijzigingen.
 
